@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Chart filter start -->
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Filters</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="sel1">Client:</label>
+                <select class="form-control" ng-model="$ctrl.selectedClient" ng-change="$ctrl.changeClient()">
+                  <option ng-repeat="client in $ctrl.clients" value={{client.client}}>{{client.client}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <label for="sel1">Date range:</label>
+              <input type="text" name="dates" class="form-control date-picker" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Chart filter end -->
+  </div>
+  <div class="row">
+    <div class="col-md-12" ng-if="$ctrl.resultCount == 0">
+      <div class="alert alert-danger">
+        No result found
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div ng-if="$ctrl.resultCount != 0">
+      <!-- line chart start -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel panel-body">
+            <canvas id="line" class="chart chart-line" chart-data="$ctrl.barChartData"
+              chart-labels="$ctrl.barChartLabels" chart-options="$ctrl.lineChartOptions"
+              chart-series="$ctrl.barChartSeries">
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <!-- line chart end -->
+
+      <!-- pie chart start -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <nvd3 options="$ctrl.pieChartOptions" data="$ctrl.pieChartData"></nvd3>
+          </div>
+        </div>
+      </div>
+      <!-- pie chart end -->
+
+      <!-- bar chart start -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <canvas id="bar" class="chart chart-bar" chart-data="$ctrl.barChartData" chart-labels="$ctrl.barChartLabels"
+              chart-options="$ctrl.barChartOptions" chart-series="$ctrl.barChartSeries"
+              chart-colors="$ctrl.barChartColors">
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <!-- bar chart end -->
+
+    </div>
+  </div>
+</div>

@@ -1,2 +1,11 @@
-# light-house-web
-light-house-web
+# LightHouse test web
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run start
+```
