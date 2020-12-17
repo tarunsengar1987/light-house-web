@@ -1,4 +1,4 @@
-# LightHouse test web
+# LightHouse web
 
 ## Project setup
 ```
